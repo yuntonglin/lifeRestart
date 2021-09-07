@@ -3112,7 +3112,8 @@
         "event": "你突破到元婴一层。",
         "postEvent": "寿元提升到500年。",
         "effect": {
-            "INT": 30
+            "INT": 300,
+            "SPR": 100
         },
         "include": "(EVT?[10358])&(STR>1000)&(INT>100)&(TLT?[1048])",
         "exclude": "EVT?[10365]"
@@ -3219,8 +3220,8 @@
         "id": 10377,
         "event": "你突破到渡劫期。",
         "effect": {
-            "INT": 10,
-            "STR": 10
+            "INT": 2000,
+            "STR": 2000
         },
         "include": "(EVT?[10375])&(INT>500)&(TLT?[1048])",
         "exclude": "EVT?[10377]"

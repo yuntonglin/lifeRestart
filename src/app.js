@@ -263,6 +263,7 @@ class App{
         const trajectoryPage = $(`
         <div id="main">
             <ul id="lifeTrajectory" class="lifeTrajectory"></ul>
+            <button id="auto_click" class="mainbtn" style="top:auto; bottom:0.1rem">自动休闲</button>
             <button id="summary" class="mainbtn" style="top:auto; bottom:0.1rem">人生总结</button>
         </div>
         `);
@@ -290,9 +291,18 @@ class App{
                 $("#lifeTrajectory").scrollTop($("#lifeTrajectory")[0].scrollHeight);
                 if(isEnd) {
                     this.#isEnd = true;
+                    trajectoryPage.find('#auto_click').hide();
                     trajectoryPage.find('#summary').show();
                 }
             });
+
+        trajectoryPage
+            .find('#auto_click')
+            .click(()=>{
+                let i;
+                for (i=0;i<100;i++){
+                $("#lifeTrajectory").click();}
+            })
 
         trajectoryPage
             .find('#summary')
@@ -379,6 +389,7 @@ class App{
                 clear: ()=>{
                     trajectoryPage.find('#lifeTrajectory').empty();
                     trajectoryPage.find('#summary').hide();
+                    trajectoryPage.find('#auto_click').show();
                     this.#isEnd = false;
                 },
                 born: ()=>{

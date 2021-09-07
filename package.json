@@ -2,11 +2,14 @@
     "name": "xlsx_transform",
     "type": "module",
     "bin": "test/index.js",
+    "homepage": "http://yuntonglin.github.io/lifeRestart",
     "scripts": {
         "test": "node test",
         "xlsxTransform": "node utils/xlsxTransform.js data",
         "dev": "webpack serve --open /view/index.html",
-        "build": "webpack --mode production"
+        "build": "webpack --mode production",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "@babel/core": "^7.15.4",
@@ -18,6 +21,7 @@
         "xlsx": "^0.17.0"
     },
     "devDependencies": {
+        "gh-pages": "^3.2.3",
         "webpack-cli": "^4.8.0"
     }
 }

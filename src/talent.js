@@ -49,13 +49,15 @@ class Talent {
             const { id, grade, name, description } = this.#talents[talentId];
             if(id == include) {
                 include = { grade, name, description, id };
+                console.log(include)
                 continue;
             }
             if(!talentList[grade]) talentList[grade] = [{ grade, name, description, id }];
             else talentList[grade].push({ grade, name, description, id });
         }
 
-        return new Array(10)
+        let talent_rand;
+        talent_rand = new Array(10)
             .fill(1).map((v, i)=>{
                 if(!i && include) return include;
                 const gradeRandom = Math.random();
@@ -72,6 +74,9 @@ class Talent {
                 const random = Math.floor(Math.random()*length) % length;
                 return talentList[grade].splice(random,1)[0];
             });
+        talent_rand.splice(0, 1, {grade: 1, name: "祖传药丸", description: "功能不明", id: 1065});
+        talent_rand.splice(1, 1, {grade: 3, name: "神秘的小盒子", description: "100岁时才能开启", id: 1048});
+        return talent_rand;
     }
 
     allocationAddition(talents) {
